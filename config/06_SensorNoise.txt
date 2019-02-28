@@ -1,7 +1,10 @@
 ### STUDENT SECTION
 
-MeasuredStdDev_GPSPosXY = 2
-MeasuredStdDev_AccelXY = .1
+# MeasuredStdDev_GPSPosXY = 2
+# MeasuredStdDev_AccelXY = .1
+
+MeasuredStdDev_GPSPosXY = 0.7238769646678072
+MeasuredStdDev_AccelXY = 0.5098569550435355
 
 ### END STUDENT SECTION
 
