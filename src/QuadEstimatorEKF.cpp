@@ -147,6 +147,8 @@ void QuadEstimatorEKF::UpdateTrueError(V3F truePos, V3F trueVel, Quaternion<floa
 
 VectorXf QuadEstimatorEKF::PredictState(VectorXf curState, float dt, V3F accel, V3F gyro)
 {
+//  printf("PredictState %f %f %f %f %f %f %f\n",
+//    curState(0), curState(1), curState(2), curState(3), curState(4), curState(5), curState(6));
   assert(curState.size() == QUAD_EKF_NUM_STATES);
   VectorXf predictedState = curState;
   // Predict the current state forward by time dt using current accelerations and body rates as input
@@ -170,6 +172,23 @@ VectorXf QuadEstimatorEKF::PredictState(VectorXf curState, float dt, V3F accel, 
 
   ////////////////////////////// BEGIN STUDENT CODE ///////////////////////////
 
+  const float x = curState(0);
+  const float y = curState(1);
+  const float z = curState(2);
+  const float x_dot = curState(3);
+  const float y_dot = curState(4);
+  const float z_dot = curState(5);
+  const float yaw = curState(6);
+
+  V3F accel_g = attitude.Rotate_BtoI(accel);
+
+  predictedState(0) = x + x_dot * dt;
+  predictedState(1) = y + y_dot * dt;
+  predictedState(2) = z + z_dot * dt;
+  predictedState(3) = x_dot + accel_g.x * dt;
+  predictedState(4) = y_dot + accel_g.y * dt;
+  predictedState(5) = z_dot + accel_g.z * dt - CONST_GRAVITY * dt;
+  predictedState(6) = yaw;
 
   /////////////////////////////// END STUDENT CODE ////////////////////////////
 
@@ -197,6 +216,18 @@ MatrixXf QuadEstimatorEKF::GetRbgPrime(float roll, float pitch, float yaw)
 
   ////////////////////////////// BEGIN STUDENT CODE ///////////////////////////
 
+  const float theta = pitch;
+  const float phi = roll;
+  const float psi = yaw;
+
+  RbgPrime(0, 0) = -cos(theta) * sin(psi);
+  RbgPrime(1, 0) =  cos(theta) * cos(psi);
+
+  RbgPrime(0, 1) = -sin(phi) * sin(theta) * sin(psi) - cos(phi) * cos(psi);
+  RbgPrime(1, 1) =  sin(phi) * sin(theta) * cos(psi) - cos(phi) * sin(psi);
+
+  RbgPrime(0, 2) = -cos(phi) * sin(theta) * sin(psi) + sin(phi) * cos(psi);
+  RbgPrime(1, 2) =  cos(phi) * sin(theta) * cos(psi) + sin(phi) * sin(psi);
 
   /////////////////////////////// END STUDENT CODE ////////////////////////////
 
@@ -205,6 +236,8 @@ MatrixXf QuadEstimatorEKF::GetRbgPrime(float roll, float pitch, float yaw)
 
 void QuadEstimatorEKF::Predict(float dt, V3F accel, V3F gyro)
 {
+  // Predict step 1 : Update U_t_bar = g(U_t, Commanded control)
+  //                  Use sensor value instead of Commanded control
   // predict the state forward
   VectorXf newState = PredictState(ekfState, dt, accel, gyro);
 
@@ -243,6 +276,17 @@ void QuadEstimatorEKF::Predict(float dt, V3F accel, V3F gyro)
 
   ////////////////////////////// BEGIN STUDENT CODE ///////////////////////////
 
+  // Predict step 2 : get gPrime (Jacobian form)
+  gPrime(0, 3) = dt;
+  gPrime(1, 4) = dt;
+  gPrime(2, 5) = dt;
+
+  gPrime(3, 6) = (RbgPrime(0) * accel).sum() * dt;
+  gPrime(4, 6) = (RbgPrime(1) * accel).sum() * dt;
+  gPrime(5, 6) = (RbgPrime(2) * accel).sum() * dt;
+
+  // Predict step 3 : update Covariance
+  ekfCov = gPrime * ekfCov * gPrime.transpose() + Q;
 
   /////////////////////////////// END STUDENT CODE ////////////////////////////
 
