@@ -1,0 +1,77 @@
+SIMULATOR!
+Select main window to interact with keyboard/mouse:
+LEFT DRAG / X+LEFT DRAG / Z+LEFT DRAG = rotate, pan, zoom camera
+W/S/UP/LEFT/DOWN/RIGHT - apply force
+C - clear all graphs
+R - reset simulation
+Space - pause simulation
+Simulation #1 (../config/11_GPSUpdate.txt)
+Simulation #2 (../config/01_Intro.txt)
+Simulation #3 (../config/01_Intro.txt)
+PASS: ABS(Quad.PosFollowErr) was less than 0.500000 for at least 0.800000 seconds
+Simulation #4 (../config/01_Intro.txt)
+PASS: ABS(Quad.PosFollowErr) was less than 0.500000 for at least 0.800000 seconds
+Simulation #5 (../config/01_Intro.txt)
+PASS: ABS(Quad.PosFollowErr) was less than 0.500000 for at least 0.800000 seconds
+Simulation #6 (../config/01_Intro.txt)
+PASS: ABS(Quad.PosFollowErr) was less than 0.500000 for at least 0.800000 seconds
+Simulation #7 (../config/02_AttitudeControl.txt)
+Simulation #8 (../config/02_AttitudeControl.txt)
+PASS: ABS(Quad.Roll) was less than 0.025000 for at least 0.750000 seconds
+PASS: ABS(Quad.Omega.X) was less than 2.500000 for at least 0.750000 seconds
+Simulation #9 (../config/02_AttitudeControl.txt)
+PASS: ABS(Quad.Roll) was less than 0.025000 for at least 0.750000 seconds
+PASS: ABS(Quad.Omega.X) was less than 2.500000 for at least 0.750000 seconds
+Simulation #10 (../config/02_AttitudeControl.txt)
+PASS: ABS(Quad.Roll) was less than 0.025000 for at least 0.750000 seconds
+PASS: ABS(Quad.Omega.X) was less than 2.500000 for at least 0.750000 seconds
+Simulation #11 (../config/02_AttitudeControl.txt)
+PASS: ABS(Quad.Roll) was less than 0.025000 for at least 0.750000 seconds
+PASS: ABS(Quad.Omega.X) was less than 2.500000 for at least 0.750000 seconds
+Simulation #12 (../config/03_PositionControl.txt)
+Simulation #13 (../config/03_PositionControl.txt)
+PASS: ABS(Quad1.Pos.X) was less than 0.100000 for at least 1.250000 seconds
+PASS: ABS(Quad2.Pos.X) was less than 0.100000 for at least 1.250000 seconds
+PASS: ABS(Quad2.Yaw) was less than 0.100000 for at least 1.000000 seconds
+Simulation #14 (../config/03_PositionControl.txt)
+PASS: ABS(Quad1.Pos.X) was less than 0.100000 for at least 1.250000 seconds
+PASS: ABS(Quad2.Pos.X) was less than 0.100000 for at least 1.250000 seconds
+PASS: ABS(Quad2.Yaw) was less than 0.100000 for at least 1.000000 seconds
+Simulation #15 (../config/04_Nonidealities.txt)
+Simulation #16 (../config/04_Nonidealities.txt)
+PASS: ABS(Quad1.PosFollowErr) was less than 0.100000 for at least 1.500000 seconds
+PASS: ABS(Quad2.PosFollowErr) was less than 0.100000 for at least 1.500000 seconds
+PASS: ABS(Quad3.PosFollowErr) was less than 0.100000 for at least 1.500000 seconds
+Simulation #17 (../config/04_Nonidealities.txt)
+PASS: ABS(Quad1.PosFollowErr) was less than 0.100000 for at least 1.500000 seconds
+PASS: ABS(Quad2.PosFollowErr) was less than 0.100000 for at least 1.500000 seconds
+PASS: ABS(Quad3.PosFollowErr) was less than 0.100000 for at least 1.500000 seconds
+Simulation #18 (../config/05_TrajectoryFollow.txt)
+Simulation #19 (../config/05_TrajectoryFollow.txt)
+PASS: ABS(Quad2.PosFollowErr) was less than 0.250000 for at least 3.000000 seconds
+Simulation #20 (../config/06_SensorNoise.txt)
+Simulation #21 (../config/06_SensorNoise.txt)
+PASS: ABS(Quad.GPS.X-Quad.Pos.X) was less than MeasuredStdDev_GPSPosXY for 68% of the time
+PASS: ABS(Quad.IMU.AX-0.000000) was less than MeasuredStdDev_AccelXY for 69% of the time
+Simulation #22 (../config/07_AttitudeEstimation.txt)
+Simulation #23 (../config/07_AttitudeEstimation.txt)
+PASS: ABS(Quad.Est.E.MaxEuler) was less than 0.100000 for at least 3.000000 seconds
+Simulation #24 (../config/07_AttitudeEstimation.txt)
+PASS: ABS(Quad.Est.E.MaxEuler) was less than 0.100000 for at least 3.000000 seconds
+Simulation #25 (../config/08_PredictState.txt)
+Simulation #26 (../config/09_PredictCovariance.txt)
+Simulation #27 (../config/09_PredictCovariance.txt)
+Simulation #28 (../config/09_PredictCovariance.txt)
+Simulation #29 (../config/09_PredictCovariance.txt)
+Simulation #30 (../config/09_PredictCovariance.txt)
+Simulation #31 (../config/09_PredictCovariance.txt)
+Simulation #32 (../config/10_MagUpdate.txt)
+Simulation #33 (../config/10_MagUpdate.txt)
+PASS: ABS(Quad.Est.E.Yaw) was less than 0.120000 for at least 10.000000 seconds
+PASS: ABS(Quad.Est.E.Yaw-0.000000) was less than Quad.Est.S.Yaw for 62% of the time
+Simulation #34 (../config/11_GPSUpdate.txt)
+Simulation #35 (../config/11_GPSUpdate.txt)
+PASS: ABS(Quad.Est.E.Pos) was less than 1.000000 for at least 20.000000 seconds
+Simulation #36 (../config/11_GPSUpdate.txt)
+PASS: ABS(Quad.Est.E.Pos) was less than 1.000000 for at least 20.000000 seconds
+
